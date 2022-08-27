@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
+<title>Report for TradingView User(s) Update: {{site_data['report_date']}}</title>
 <style type="text/css">
 <!--
 body {
@@ -88,7 +88,7 @@ a:hover, a:active, a:focus { /* this group of selectors will give a keyboard nav
 	line-height: 0px;
 }
 .tableHeader {
-	font-family:Tahoma, Geneva, sans-serif
+	font-family:Tahoma, Geneva, sans-serif;
 	font-size: 12px;
 	color:#1cb01c;
 }
@@ -108,24 +108,36 @@ a:hover, a:active, a:focus { /* this group of selectors will give a keyboard nav
     </table>
     </div>
   <div class="content">
-   <h1 class="table">Result for Report ran on: {{site_data['report_date']}}</h1>
+   <h1 class="table">Report for TradingView User(s) Update: {{site_data['report_date']}}</h1>
     <table width="100%" border="0" cellspacing="0" cellpadding="5">
       <tr class="tableHeader" bgcolor="#5a431b">
         <th scope="col" width="50%" align="left">TradingView Username</th>
         <th scope="col" width="50%" align="left">Action</th>
       </tr>
+      {% if addedusers|length > 0 %}
       {% for my_data in addedusers %}
       <tr style="background-color: #1cb01c;">
         <th scope="col" style="color:white;" align="left">{{my_data['username'][0]}}</th>
         <th scope="col" style="color:white;" align="left">Added</th>
       </tr>
       {% endfor %}
+      {% else %}
+      <tr style="background-color: #1cb01c;">
+        <th colspan="2" scope="col" style="color:white;" align="left">No New Users Added</th>
+      </tr>
+      {% endif %}
+      {% if deletedusers|length > 0 %}
       {% for my_data1 in deletedusers %}
       <tr style="background-color: #ff0000;">
         <th scope="col" style="color:white;" align="left">{{my_data1['username'][0]}}</th>
         <th scope="col" style="color:white;" align="left">Deleted</th>
       </tr>
       {% endfor %}
+      {% else %}
+      <tr style="background-color: #ff0000;">
+        <th colspan="2" scope="col" style="color:white;" align="left">No Users Deleted</th>
+      </tr>
+      {% endif %}
       {% if incorrectusers|length > 0 %}
       <tr style="background-color: #5a431b;">
         <th colspan="2" scope="col">&nbsp;</th>
@@ -145,6 +157,7 @@ a:hover, a:active, a:focus { /* this group of selectors will give a keyboard nav
       <tr style="background-color: #5a431b;">
         <th colspan="2" scope="col">&nbsp;</th>
       </tr>
+      {% if allusers|length > 0 %}
       <tr style="background-color: #5a431b;">
         <th colspan="2" scope="col" style="color:white;" align="left">Full List of Users with Indicator Access:</th>
       </tr>
@@ -156,6 +169,7 @@ a:hover, a:active, a:focus { /* this group of selectors will give a keyboard nav
         <th colspan="2" scope="col" style="color:white;" align="left">{{my_data3['username'][0]}}</th>
       </tr>
       {% endfor %}
+      {% endif %}
     </table>
     <!-- end .content --></div>
   <div class="footer">
