@@ -143,23 +143,24 @@ a:hover, a:active, a:focus { /* this group of selectors will give a keyboard nav
         <th colspan="2" scope="col">&nbsp;</th>
       </tr>
       <tr style="background-color: #f5c1e8;">
-        <th colspan="2" scope="col" style="color:black;" align="left">Incorrect TradingView Usernames supplied:</th>
+        <th colspan="2" scope="col" style="color:black;text-decoration: underline;" align="left">Incorrect TradingView Action or Usernames</th>
       </tr>
       <tr style="background-color: #f5c1e8;">
         <th colspan="2" scope="col">&nbsp;</th>
       </tr>
       {% for my_data2 in incorrectusers %}
       <tr style="background-color: #f5c1e8;">
-        <th colspan="2" scope="col" style="color:black;" align="left">{{my_data2['username'][0]}}</th>
+        <th scope="col" style="color:black;vertical-align: top;" align="left">{{my_data2['username'][0]}}</th>
+        <th scope="col" style="color:black;vertical-align: top;" align="left">{{my_data2['username'][1]}}</th>
       </tr>
       {% endfor %}
       {% endif %}
+      {% if allusers|length > 0 %}
       <tr style="background-color: #5a431b;">
         <th colspan="2" scope="col">&nbsp;</th>
       </tr>
-      {% if allusers|length > 0 %}
       <tr style="background-color: #5a431b;">
-        <th colspan="2" scope="col" style="color:white;" align="left">Full List of Users with Indicator Access:</th>
+        <th colspan="2" scope="col" style="color:white;text-decoration: underline;" align="left">Full List of Users with Indicator Access:</th>
       </tr>
       <tr style="background-color: #5a431b;">
         <th colspan="2" scope="col">&nbsp;</th>
@@ -170,6 +171,9 @@ a:hover, a:active, a:focus { /* this group of selectors will give a keyboard nav
       </tr>
       {% endfor %}
       {% endif %}
+      <tr style="background-color: #5a431b;">
+        <th colspan="2" scope="col">&nbsp;</th>
+      </tr>
     </table>
     <!-- end .content --></div>
   <div class="footer">
