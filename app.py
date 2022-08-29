@@ -4,6 +4,7 @@ import os
 import csv
 # from var_dump import var_dump
 import logging
+from waitress import serve
 app = Flask(__name__)
 
 
@@ -68,4 +69,4 @@ def read_files(data_file_path, filetype="deleted"):
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=9456)
+    serve(app, host="127.0.0.1", port=9456)
