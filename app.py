@@ -2,7 +2,6 @@ from flask import Flask, render_template
 from datetime import datetime
 import os
 import csv
-# from var_dump import var_dump
 import logging
 from waitress import serve
 app = Flask(__name__)
