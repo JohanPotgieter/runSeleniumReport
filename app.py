@@ -14,16 +14,11 @@ def show_index():
     image_folder = os.path.join('static', 'img')
     app.config['IMAGE_FOLDER'] = image_folder
     ttc_logo = os.path.join(app.config['IMAGE_FOLDER'], 'logo_ttc.png')
-    if os.path.exists(ttc_logo):
-        site_data = {'logo_image': ttc_logo}
-    else:
-        site_data = {'logo_image': ""}
-        logging.warning('Logo image is not found where expected.')
+    site_data = {'logo_image': ttc_logo}
     today = datetime.today()
     report_date = today.strftime("%d/%m/%Y %H:%M:%S")
     site_data['report_date'] = report_date
     data_file_path = "c:\\files\\addedusers.csv"
-# data_file_path = os.path.join(os.path.dirname(__file__), 'static\\files', 'addedusers.csv')
     if os.path.exists(data_file_path):
         addedusers = read_files(data_file_path, "add")
     else:
