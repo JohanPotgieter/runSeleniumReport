@@ -80,10 +80,12 @@ def send_email(report_date, file_date):
     msg['Subject'] = 'TbD Invite-Only script Daily Report - ' + str(report_date)
     msg['From'] = mail_user
     msg['To'] = 'tradetravelchill@gmail.com'
+    msg['CC'] = 'johan@amberitservices.com.au'
 
     txt = MIMEText('Hi Annii,\n\nPlease find the report for today attached to this email.\n\nThe Report includes a '
-                   'list of all new users added today, users removed today and a list of all users with access to '
-                   'the Trade By Design Indicator.\n\nRegards,\nIT Team')
+                   'list of all new users added today, users removed today, users with incorrect TV usernames or '
+                   'ones we could not removed because the TV username does not exist on our list, and a list of all '
+                   'users with access to the Trade By Design Indicator.\n\nRegards,\nIT Team')
     msg.attach(txt)
 
     filename = 'TbD_Report_' + str(file_date) + '.pdf'
