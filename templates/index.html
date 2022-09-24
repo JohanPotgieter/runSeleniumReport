@@ -24,6 +24,7 @@ h1, h2, h3, h4, h5, h6, p {
 	padding-left: 15px; /* adding the padding to the sides of the elements within the divs, instead of the divs themselves, gets rid of any box model math. A nested div with side padding can also be used as an alternate method. */
 	font-size: 120%;
 	text-align: left;
+    color: white;
 }
 a img { /* this selector removes the default blue border displayed in some browsers around an image when it is surrounded by a link */
 	border: none;
@@ -44,7 +45,6 @@ a:hover, a:active, a:focus { /* this group of selectors will give a keyboard nav
 /* ~~ this fixed width container surrounds the other divs ~~ */
 .container {
 	width: 960px;
-	background-color: #FFF;
 	margin: 0 auto; /* the auto value on the sides, coupled with the width, centers the layout */
 }
 
@@ -97,18 +97,18 @@ a:hover, a:active, a:focus { /* this group of selectors will give a keyboard nav
 
 <body>
 
-<div class="container">
+<div class="container bg-dark">
   <div class="header">
     <table width="100%" border="0" cellspacing="0" cellpadding="2" style="background-color: #5a431b; text-align: center;">
       <tr>
         <td width="33%">&nbsp;</td>
-        <td width="33%"><img src="https://secureservercdn.net/198.71.190.156/ug5.35a.myftpupload.com/wp-content/uploads/2022/07/logo.png?time=1662715851" width="195" height="65" alt="Trade Travel Chill" /></td>
+        <td width="33%"><img src="https://amberitservices.com.au/ttc3.png" width="151" height="64" alt="Trade Travel Chill" /></td>
         <td width="33%">&nbsp;</td>
       </tr>
     </table>
     </div>
   <div class="content">
-   <h1 class="table">Report for TradingView User(s) Update: {{site_data['report_date']}}</h1>
+   <h1 class="table bg-dark">Report for TradingView User(s) Update: {{site_data['report_date']}}</h1>
     <table width="100%" border="0" cellspacing="0" cellpadding="5">
       <tr class="tableHeader" bgcolor="#5a431b">
         <th scope="col" width="50%" align="left">TradingView Username</th>
@@ -160,7 +160,8 @@ a:hover, a:active, a:focus { /* this group of selectors will give a keyboard nav
         <th colspan="2" scope="col">&nbsp;</th>
       </tr>
       <tr style="background-color: #5a431b;">
-        <th colspan="2" scope="col" style="color:white;text-decoration: underline;" align="left">Full List of Users with Indicator Access:</th>
+        <th colspan="2" scope="col" style="color:white;text-decoration: underline;" align="left">Full List of Users with Indicator Access (Total Users
+            - {{ site_data['total_users'] }}):</th>
       </tr>
       <tr style="background-color: #5a431b;">
         <th colspan="2" scope="col">&nbsp;</th>
