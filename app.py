@@ -7,7 +7,6 @@ from datetime import datetime
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from io import StringIO
-# import pdfkit
 from flask import Flask, render_template
 from waitress import serve
 import ftplib
@@ -43,7 +42,7 @@ def index():
     data_file_path = "c:\\files\\full_user_list.csv"
     if os.path.exists(data_file_path):
         allusers = read_files(data_file_path)
-        site_data = {'total_users': int(len(allusers))}
+        site_data['total_users'] = int(len(allusers))
     else:
         allusers = []
         logging.warning('No "All Users" File Found!')
